@@ -10,7 +10,7 @@ a)  a = 0
     while (a < n * n * n):
       a = a + n * n
 ```
-
+O(3^n)
 
 ```
 b)  sum = 0
@@ -20,6 +20,7 @@ b)  sum = 0
         j *= 2
         sum += 1
 ```
+O(n^2)
 
 ```
 c)  def bunnyEars(bunnies):
@@ -28,6 +29,7 @@ c)  def bunnyEars(bunnies):
 
       return 2 + bunnyEars(bunnies-1)
 ```
+O(n)
 
 ## Exercise II
 

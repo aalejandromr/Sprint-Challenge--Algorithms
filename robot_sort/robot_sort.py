@@ -97,7 +97,21 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        smallest_index = 0
+        for i in range(0, len(self._list)):
+            current_index = i
+            j = i
+            while j <= len(self._list) - 1:
+                if self._list[j] < self._list[smallest_index]:
+                    smallest_index = j
+
+                if j == len(self._list) - 1:
+                    prevSmallest = self._list[current_index]
+                    self._list[current_index] = self._list[smallest_index]
+                    self._list[smallest_index] = prevSmallest
+                    smallest_index = j
+                j = j + 1
+        return self._list
 
 
 if __name__ == "__main__":
