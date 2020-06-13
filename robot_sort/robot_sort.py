@@ -92,12 +92,46 @@ class SortingRobot:
         """
         return self._light == "ON"
 
-    def sort(self):
+    def sort(self, arr = None):
         """
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        if arr is None:
+            arr = self._list
+        # Understand
+        # Sort self._list and return it sorted
+        # Your code here
+        if len(arr) <= 1:
+            return arr
+        else:
+            middle_index = (1 + len(arr)) // 2
+            left = arr[:middle_index]
+            right = arr[middle_index:]
+        self._list = self.merge(self.sort(left), self.sort(right))
+        return self._list
+
+    def merge(self, arrA, arrB):
+        elements = len(arrA) + len(arrB)
+        merged_arr = [0] * elements
+
+        # Check indexes by smaller array so we have smaller complexity
+        index_a, index_b = 0, 0
+        # iterate over the merged_array and find out what to put inside
+        for merged_array_index in range(0, len(merged_arr)):
+            if index_a >= len(arrA):
+                merged_arr[merged_array_index] = arrB[index_b]
+                index_b += 1
+            elif index_b >= len(arrB):
+                merged_arr[merged_array_index] = arrA[index_a]
+                index_a += 1
+            elif arrA[index_a] > arrB[index_b]:
+                merged_arr[merged_array_index] = arrB[index_b]
+                index_b += 1
+            else:
+                merged_arr[merged_array_index] = arrA[index_a]
+                index_a += 1
+        return merged_arr
 
 
 if __name__ == "__main__":
