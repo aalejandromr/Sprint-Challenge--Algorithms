@@ -2,13 +2,13 @@
 
 ## Exercise I
 
-a) Time complexity will be O(n^3) because the operations will increase 3 times faster as the input grows. Space complexity I believe will be the same.
+a) Time complexity will be O(n) because the operations will increase 3 times faster as the input grows. Space complexity I believe will be the same.
 
 
 b) Time complexity wil be O(n log n)
 
 
-c) Time complexity I believe will be O(1) because we do only do O(1) operations but it's space complexity will be O(n) because the space will increase as the input increases.
+c) Time complexity I believe will be O(n) because we do only do O(n) operations but it's space complexity will be O(n) because the space will increase as the input increases.
 
 ## Exercise II
 

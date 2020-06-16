@@ -21,3 +21,5 @@ def count_th(word, count = 0):
         count += 1
     word = word[:-1]
     return count_th(word, count)
+
+    # 'abcthefthghith'

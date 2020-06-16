@@ -96,20 +96,21 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        if arr is None:
-            arr = self._list
-        # Understand
-        # Sort self._list and return it sorted
-        # Your code here
-        if len(arr) <= 1:
-            return arr
+        if self.can_move_right() == False and self.light_is_on() == False:
+            return
         else:
-            middle_index = (1 + len(arr)) // 2
-            left = arr[:middle_index]
-            right = arr[middle_index:]
-        self._list = self.merge(self.sort(left), self.sort(right))
-        return self._list
+            self.set_light_off()
+            self.swap_item()
+            while self.can_move_right() == True:
+                self.move_right()
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.set_light_on()
+            while self.compare_item() is not None:
+                self.move_left()
+            self.swap_item()
+            self.move_right()
+            return self.sort()
 
     def merge(self, arrA, arrB):
         elements = len(arrA) + len(arrB)
